@@ -9,7 +9,7 @@
 body{
     margin:0;
     font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-    background:#14001f; /* roxo escuro */
+    background:#14001f;
     overflow-x:hidden;
     color:white;
     scroll-behavior:smooth;
@@ -31,7 +31,7 @@ body{
 #intro-screen h1{
     font-weight:300;
     font-size:22px;
-    opacity:0.8;
+    opacity:0.9;
 }
 
 /* SEÇÕES */
@@ -39,6 +39,12 @@ section{
     position:relative;
     height:100vh;
     overflow:hidden;
+    opacity:0;
+    transition:opacity 2s ease;
+}
+
+section.visible{
+    opacity:1;
 }
 
 img{
@@ -46,7 +52,12 @@ img{
     height:100vh;
     object-fit:cover;
     filter:brightness(60%);
-    transition:opacity 2s ease, transform 8s ease;
+    animation:zoom 12s infinite alternate ease-in-out;
+}
+
+@keyframes zoom{
+    from{ transform:scale(1); }
+    to{ transform:scale(1.08); }
 }
 
 .overlay{
@@ -66,23 +77,13 @@ img{
 
 .fade{
     opacity:0;
-    transition:opacity 1.5s ease, transform 1.5s ease;
     transform:translateY(20px);
+    transition:opacity 1.5s ease, transform 1.5s ease;
 }
 
 .fade.show{
     opacity:1;
     transform:translateY(0);
-}
-
-/* transição suave entre fotos */
-section{
-    opacity:0;
-    transition:opacity 2s ease;
-}
-
-section.visible{
-    opacity:1;
 }
 
 .vignette{
@@ -96,7 +97,12 @@ section.visible{
 
 <body>
 
-<!-- TELA ROXA INICIAL -->
+<!-- ÁUDIO -->
+<audio id="musica" loop preload="auto">
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<!-- TELA ROXA -->
 <div id="intro-screen">
     <h1>Desde 27/11/2025 ✨</h1>
 </div>
@@ -115,7 +121,7 @@ section.visible{
     <img src="imagens/foto1.jpg">
     <div class="vignette"></div>
     <div class="overlay fade">
-        <p>Começamos o ano juntos… e começávamos algo maior.</p>
+        <p>Começamos juntos… e quero continuar sempre ao seu lado.</p>
     </div>
 </section>
 
@@ -147,7 +153,6 @@ section.visible{
     </div>
 </section>
 
-<!-- RESTANTE -->
 <section><img src="imagens/foto5.jpg"><div class="vignette"></div></section>
 <section><img src="imagens/foto6.jpg"><div class="vignette"></div></section>
 <section><img src="imagens/foto7.jpg"><div class="vignette"></div></section>
@@ -157,7 +162,33 @@ section.visible{
 <section><img src="imagens/foto12.jpg"><div class="vignette"></div></section>
 
 <script>
-/* Delay inicial */
+const audio = document.getElementById("musica");
+
+/* Inicia música com fade-in */
+function iniciarMusica(){
+    audio.volume = 0;
+    audio.play().then(()=>{
+        let vol = 0;
+        const fadeAudio = setInterval(()=>{
+            if(vol < 0.7){
+                vol += 0.05;
+                audio.volume = vol;
+            } else {
+                clearInterval(fadeAudio);
+            }
+        },200);
+    }).catch(()=>{});
+
+    document.removeEventListener("click", iniciarMusica);
+    document.removeEventListener("touchstart", iniciarMusica);
+    document.removeEventListener("scroll", iniciarMusica);
+}
+
+document.addEventListener("click", iniciarMusica);
+document.addEventListener("touchstart", iniciarMusica);
+document.addEventListener("scroll", iniciarMusica);
+
+/* Delay tela roxa */
 setTimeout(() => {
     const intro = document.getElementById("intro-screen");
     intro.style.opacity = "0";
@@ -166,7 +197,6 @@ setTimeout(() => {
 
 /* Fade das seções */
 const sections = document.querySelectorAll("section");
-const faders = document.querySelectorAll(".fade");
 
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
