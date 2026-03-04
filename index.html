@@ -8,10 +8,10 @@
 <style>
 body{
     margin:0;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    background:#0f0f14;
-    color:white;
+    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+    background:#0b0b10;
     overflow-x:hidden;
+    color:white;
 }
 
 .container{
@@ -21,40 +21,43 @@ body{
 
 section{
     position:relative;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:20px;
+    height:100vh;
+    overflow:hidden;
 }
 
 img{
     width:100%;
     height:100vh;
     object-fit:cover;
-    filter:brightness(70%);
+    filter:brightness(60%);
+    animation:zoom 12s infinite alternate ease-in-out;
+}
+
+@keyframes zoom{
+    from{ transform:scale(1); }
+    to{ transform:scale(1.1); }
 }
 
 .overlay{
     position:absolute;
+    bottom:15%;
+    left:0;
+    width:100%;
     padding:20px;
+    box-sizing:border-box;
+    text-align:center;
 }
 
-h1{
-    font-size:28px;
-    margin-bottom:15px;
-}
-
-p{
-    font-size:16px;
-    line-height:1.5;
+.center{
+    top:50%;
+    transform:translateY(-50%);
+    bottom:auto;
 }
 
 .fade{
     opacity:0;
-    transform:translateY(40px);
-    transition:1.2s ease;
+    transform:translateY(30px);
+    transition:1.5s ease;
 }
 
 .fade.show{
@@ -62,21 +65,39 @@ p{
     transform:translateY(0);
 }
 
-.highlight{
-    font-size:20px;
-    font-weight:300;
+h1{
+    font-size:26px;
+    font-weight:500;
+}
+
+p{
+    font-size:16px;
+    line-height:1.6;
+}
+
+.vignette{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:radial-gradient(circle, transparent 40%, rgba(0,0,0,0.7));
 }
 
 </style>
 </head>
 
 <body>
+
+<audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
 <div class="container">
 
 <!-- FOTO 11 - CAPA -->
 <section>
     <img src="imagens/foto11.jpg">
-    <div class="overlay fade">
+    <div class="vignette"></div>
+    <div class="overlay center fade" id="intro">
         <h1>Desde 27/11/2025 ✨</h1>
         <p>Eu já não imaginava mais meus dias sem você.</p>
     </div>
@@ -85,10 +106,11 @@ p{
 <!-- FOTO 1 -->
 <section>
     <img src="imagens/foto1.jpg">
+    <div class="vignette"></div>
     <div class="overlay fade">
-        <p class="highlight">
+        <p>
             Começamos o ano juntos…  
-            e ali, sem perceber, começávamos algo muito maior.
+            e quero que todos os anos sejam assim.
         </p>
     </div>
 </section>
@@ -96,35 +118,39 @@ p{
 <!-- FOTO 2 -->
 <section>
     <img src="imagens/foto2.jpg">
+    <div class="vignette"></div>
     <div class="overlay fade">
-        <p>Na praia, entre o mar e o céu, eu já sentia paz ao seu lado.</p>
+        <p>Uma viagem mais que especial, sinto paz ao seu lado.</p>
     </div>
 </section>
 
 <!-- FOTO 3 -->
 <section>
     <img src="imagens/foto3.jpg">
+    <div class="vignette"></div>
     <div class="overlay fade">
         <p>O som das ondas… e o som da sua risada.</p>
     </div>
 </section>
 
-<!-- FOTO 4 - ALIANÇA -->
+<!-- FOTO 4 -->
 <section>
     <img src="imagens/foto4.jpg">
+    <div class="vignette"></div>
     <div class="overlay fade">
         <h1>Nosso Compromisso 💍</h1>
         <p>
-            Naquele momento, olhando para nossa aliança na praia,  
+            Naquele momento, olhando nossa aliança na praia,  
             eu tive certeza:  
-            eu quero estar sempre junto com você.
+            quero estar sempre junto com você.
         </p>
     </div>
 </section>
 
-<!-- RESTANTE DAS FOTOS -->
+<!-- Restante -->
 <section>
     <img src="imagens/foto5.jpg">
+    <div class="vignette"></div>
     <div class="overlay fade">
         <p>Cada detalhe ao seu lado vira memória.</p>
     </div>
@@ -132,6 +158,7 @@ p{
 
 <section>
     <img src="imagens/foto6.jpg">
+    <div class="vignette"></div>
     <div class="overlay fade">
         <p>Cada abraço, segurança.</p>
     </div>
@@ -139,6 +166,7 @@ p{
 
 <section>
     <img src="imagens/foto7.jpg">
+    <div class="vignette"></div>
     <div class="overlay fade">
         <p>Cada conversa, conexão.</p>
     </div>
@@ -146,6 +174,7 @@ p{
 
 <section>
     <img src="imagens/foto8.jpg">
+    <div class="vignette"></div>
     <div class="overlay fade">
         <p>Você transformou meus dias comuns em especiais.</p>
     </div>
@@ -153,6 +182,7 @@ p{
 
 <section>
     <img src="imagens/foto9.jpg">
+    <div class="vignette"></div>
     <div class="overlay fade">
         <p>Em apenas um mês… parece que foi muito mais.</p>
     </div>
@@ -160,6 +190,7 @@ p{
 
 <section>
     <img src="imagens/foto10.jpg">
+    <div class="vignette"></div>
     <div class="overlay fade">
         <p>Porque quando é verdadeiro, o tempo ganha outro significado.</p>
     </div>
@@ -167,11 +198,12 @@ p{
 
 <section>
     <img src="imagens/foto12.jpg">
+    <div class="vignette"></div>
     <div class="overlay fade">
         <h1>Quero continuar…</h1>
         <p>
             Começamos juntos.  
-            E eu quero continuar todos os próximos capítulos  
+            E quero continuar todos os próximos capítulos  
             da minha vida ao seu lado. ❤️
         </p>
     </div>
@@ -190,9 +222,17 @@ const observer = new IntersectionObserver(entries => {
     });
 }, { threshold: 0.4 });
 
-faders.forEach(fade => {
-    observer.observe(fade);
-});
+faders.forEach(fade => observer.observe(fade));
+
+// Intro some após 3 segundos
+setTimeout(() => {
+    document.getElementById("intro").style.opacity = "0";
+}, 3000);
+
+// Música inicia no primeiro toque
+document.body.addEventListener("click", () => {
+    document.getElementById("musica").play();
+}, { once:true });
 </script>
 
 </body>
