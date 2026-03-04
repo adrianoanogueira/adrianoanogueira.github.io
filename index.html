@@ -9,16 +9,32 @@
 body{
     margin:0;
     font-family:-apple-system,BlinkMacSystemFont,sans-serif;
-    background:#0b0b10;
+    background:#14001f; /* roxo escuro */
     overflow-x:hidden;
     color:white;
+    scroll-behavior:smooth;
 }
 
-.container{
-    max-width:390px;
-    margin:auto;
+/* TELA INICIAL */
+#intro-screen{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:#1a002b;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:10;
+    transition:opacity 2s ease;
 }
 
+#intro-screen h1{
+    font-weight:300;
+    font-size:22px;
+    opacity:0.8;
+}
+
+/* SEÇÕES */
 section{
     position:relative;
     height:100vh;
@@ -30,22 +46,16 @@ img{
     height:100vh;
     object-fit:cover;
     filter:brightness(60%);
-    animation:zoom 12s infinite alternate ease-in-out;
-}
-
-@keyframes zoom{
-    from{ transform:scale(1); }
-    to{ transform:scale(1.1); }
+    transition:opacity 2s ease, transform 8s ease;
 }
 
 .overlay{
     position:absolute;
     bottom:15%;
-    left:0;
     width:100%;
+    text-align:center;
     padding:20px;
     box-sizing:border-box;
-    text-align:center;
 }
 
 .center{
@@ -56,8 +66,8 @@ img{
 
 .fade{
     opacity:0;
-    transform:translateY(30px);
-    transition:1.5s ease;
+    transition:opacity 1.5s ease, transform 1.5s ease;
+    transform:translateY(20px);
 }
 
 .fade.show{
@@ -65,14 +75,14 @@ img{
     transform:translateY(0);
 }
 
-h1{
-    font-size:26px;
-    font-weight:500;
+/* transição suave entre fotos */
+section{
+    opacity:0;
+    transition:opacity 2s ease;
 }
 
-p{
-    font-size:16px;
-    line-height:1.6;
+section.visible{
+    opacity:1;
 }
 
 .vignette{
@@ -81,24 +91,21 @@ p{
     height:100%;
     background:radial-gradient(circle, transparent 40%, rgba(0,0,0,0.7));
 }
-
 </style>
 </head>
 
 <body>
 
-<audio id="musica" loop>
-    <source src="musica.mp3" type="audio/mpeg">
-</audio>
+<!-- TELA ROXA INICIAL -->
+<div id="intro-screen">
+    <h1>Desde 27/11/2025 ✨</h1>
+</div>
 
-<div class="container">
-
-<!-- FOTO 11 - CAPA -->
+<!-- FOTO 11 -->
 <section>
     <img src="imagens/foto11.jpg">
     <div class="vignette"></div>
-    <div class="overlay center fade" id="intro">
-        <h1>Desde 27/11/2025 ✨</h1>
+    <div class="overlay center fade">
         <p>Eu já não imaginava mais meus dias sem você.</p>
     </div>
 </section>
@@ -108,10 +115,7 @@ p{
     <img src="imagens/foto1.jpg">
     <div class="vignette"></div>
     <div class="overlay fade">
-        <p>
-            Começamos o ano juntos…  
-            e quero que todos os anos sejam assim.
-        </p>
+        <p>Começamos o ano juntos… e começávamos algo maior.</p>
     </div>
 </section>
 
@@ -120,7 +124,7 @@ p{
     <img src="imagens/foto2.jpg">
     <div class="vignette"></div>
     <div class="overlay fade">
-        <p>Uma viagem mais que especial, sinto paz ao seu lado.</p>
+        <p>Na praia, entre o mar e o céu, eu já sentia paz.</p>
     </div>
 </section>
 
@@ -129,7 +133,7 @@ p{
     <img src="imagens/foto3.jpg">
     <div class="vignette"></div>
     <div class="overlay fade">
-        <p>O som das ondas… e o som da sua risada.</p>
+        <p>O som das ondas… e sua risada.</p>
     </div>
 </section>
 
@@ -138,101 +142,45 @@ p{
     <img src="imagens/foto4.jpg">
     <div class="vignette"></div>
     <div class="overlay fade">
-        <h1>Nosso Compromisso 💍</h1>
-        <p>
-            Naquele momento, olhando nossa aliança na praia,  
-            eu tive certeza:  
-            quero estar sempre junto com você.
-        </p>
+        <h2>Nosso Compromisso 💍</h2>
+        <p>Quero estar sempre junto com você.</p>
     </div>
 </section>
 
-<!-- Restante -->
-<section>
-    <img src="imagens/foto5.jpg">
-    <div class="vignette"></div>
-    <div class="overlay fade">
-        <p>Cada detalhe ao seu lado vira memória.</p>
-    </div>
-</section>
-
-<section>
-    <img src="imagens/foto6.jpg">
-    <div class="vignette"></div>
-    <div class="overlay fade">
-        <p>Cada abraço, segurança.</p>
-    </div>
-</section>
-
-<section>
-    <img src="imagens/foto7.jpg">
-    <div class="vignette"></div>
-    <div class="overlay fade">
-        <p>Cada conversa, conexão.</p>
-    </div>
-</section>
-
-<section>
-    <img src="imagens/foto8.jpg">
-    <div class="vignette"></div>
-    <div class="overlay fade">
-        <p>Você transformou meus dias comuns em especiais.</p>
-    </div>
-</section>
-
-<section>
-    <img src="imagens/foto9.jpg">
-    <div class="vignette"></div>
-    <div class="overlay fade">
-        <p>Em apenas um mês… parece que foi muito mais.</p>
-    </div>
-</section>
-
-<section>
-    <img src="imagens/foto10.jpg">
-    <div class="vignette"></div>
-    <div class="overlay fade">
-        <p>Porque quando é verdadeiro, o tempo ganha outro significado.</p>
-    </div>
-</section>
-
-<section>
-    <img src="imagens/foto12.jpg">
-    <div class="vignette"></div>
-    <div class="overlay fade">
-        <h1>Quero continuar…</h1>
-        <p>
-            Começamos juntos.  
-            E quero continuar todos os próximos capítulos  
-            da minha vida ao seu lado. ❤️
-        </p>
-    </div>
-</section>
-
-</div>
+<!-- RESTANTE -->
+<section><img src="imagens/foto5.jpg"><div class="vignette"></div></section>
+<section><img src="imagens/foto6.jpg"><div class="vignette"></div></section>
+<section><img src="imagens/foto7.jpg"><div class="vignette"></div></section>
+<section><img src="imagens/foto8.jpg"><div class="vignette"></div></section>
+<section><img src="imagens/foto9.jpg"><div class="vignette"></div></section>
+<section><img src="imagens/foto10.jpg"><div class="vignette"></div></section>
+<section><img src="imagens/foto12.jpg"><div class="vignette"></div></section>
 
 <script>
-const faders = document.querySelectorAll('.fade');
+/* Delay inicial */
+setTimeout(() => {
+    const intro = document.getElementById("intro-screen");
+    intro.style.opacity = "0";
+    setTimeout(()=> intro.style.display="none",2000);
+}, 3000);
+
+/* Fade das seções */
+const sections = document.querySelectorAll("section");
+const faders = document.querySelectorAll(".fade");
 
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if(entry.isIntersecting){
-            entry.target.classList.add('show');
+            entry.target.classList.add("visible");
+            const overlay = entry.target.querySelector(".fade");
+            if(overlay){
+                setTimeout(()=> overlay.classList.add("show"),500);
+            }
         }
     });
-}, { threshold: 0.4 });
+},{threshold:0.6});
 
-faders.forEach(fade => observer.observe(fade));
-
-// Intro some após 3 segundos
-setTimeout(() => {
-    document.getElementById("intro").style.opacity = "0";
-}, 3000);
-
-// Música inicia no primeiro toque
-document.body.addEventListener("click", () => {
-    document.getElementById("musica").play();
-}, { once:true });
+sections.forEach(section => observer.observe(section));
 </script>
 
 </body>
