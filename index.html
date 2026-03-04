@@ -1,186 +1,261 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Desde 27/11/2025 ❤️</title>
 
 <style>
-body {
-    margin: 0;
-    background: #1a002b;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
+body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+    background:#14001f;
+    overflow-x:hidden;
+    color:white;
+    scroll-behavior:smooth;
 }
 
-.container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
+/* TELA INICIAL */
+#intro-screen{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:#1a002b;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:10;
+    transition:opacity 2s ease;
 }
 
-.slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+#intro-screen h1{
+    font-weight:300;
+    font-size:22px;
+    opacity:0.9;
 }
 
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    animation: zoom 10s ease-in-out infinite alternate;
+/* SEÇÕES */
+section{
+    position:relative;
+    height:100vh;
+    overflow:hidden;
+    opacity:0;
+    transition:opacity 2s ease;
 }
 
-@keyframes zoom {
-    from { transform: scale(1); }
-    to { transform: scale(1.08); }
+section.visible{
+    opacity:1;
 }
 
-.texto {
-    position: absolute;
-    bottom: 15%;
-    width: 90%;
-    left: 5%;
-    color: white;
-    font-size: 22px;
-    text-align: center;
-    text-shadow: 0 0 15px rgba(0,0,0,0.8);
-    animation: fadeText 2s ease;
+img{
+    width:100%;
+    height:100vh;
+    object-fit:cover;
+    filter:brightness(60%);
+    animation:zoom 12s infinite alternate ease-in-out;
 }
 
-@keyframes fadeText {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes zoom{
+    from{ transform:scale(1); }
+    to{ transform:scale(1.08); }
 }
 
-.intro {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #2d004d;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 24px;
-    text-align: center;
-    transition: opacity 2s ease;
+.overlay{
+    position:absolute;
+    bottom:15%;
+    width:100%;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+.center{
+    top:50%;
+    transform:translateY(-50%);
+    bottom:auto;
+}
+
+.fade{
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity 1.5s ease, transform 1.5s ease;
+}
+
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.vignette{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:radial-gradient(circle, transparent 40%, rgba(0,0,0,0.7));
 }
 </style>
 </head>
 
 <body>
 
-<audio id="musica" autoplay loop>
-    <source src="imagens/musica.mp3" type="audio/mpeg">
+<audio id="musica" loop preload="auto">
+    <source src="musica.mp3" type="audio/mpeg">
 </audio>
 
-<div class="container">
-
-<div class="intro" id="intro">
-Desde 27/11/2025... 💜<br>
-Tudo começou com você.
+<!-- TELA ROXA -->
+<div id="intro-screen">
+    <h1>Desde 27/11/2025 ✨</h1>
 </div>
 
-<div class="slide">
-<img src="imagens/foto11.jpg">
-<div class="texto">Eu já não imaginava mais meus dias sem você.</div>
-</div>
+<!-- FOTO 11 -->
+<section>
+    <img src="imagens/foto11.jpg">
+    <div class="vignette"></div>
+    <div class="overlay center fade">
+        <p>Eu já não imaginava mais meus dias sem você.</p>
+    </div>
+</section>
 
-<div class="slide">
-<img src="imagens/foto1.jpg">
-<div class="texto">Começamos juntos… e quero continuar sempre ao seu lado.</div>
-</div>
+<section>
+    <img src="imagens/foto1.jpg">
+    <div class="vignette"></div>
+    <div class="overlay fade">
+        <p>Começamos juntos… e quero continuar sempre ao seu lado.</p>
+    </div>
+</section>
 
-<div class="slide">
-<img src="imagens/foto2.jpg">
-<div class="texto">Com você eu sinto paz.</div>
-</div>
+<section>
+    <img src="imagens/foto2.jpg">
+    <div class="vignette"></div>
+    <div class="overlay fade">
+        <p>Com você eu sinto paz.</p>
+    </div>
+</section>
 
-<div class="slide">
-<img src="imagens/foto3.jpg">
-<div class="texto">O som das ondas… e sua risada.</div>
-</div>
+<section>
+    <img src="imagens/foto3.jpg">
+    <div class="vignette"></div>
+    <div class="overlay fade">
+        <p>O som das ondas… e sua risada.</p>
+    </div>
+</section>
 
-<div class="slide">
-<img src="imagens/foto4.jpg">
-<div class="texto">Nosso compromisso 💍<br>Quero estar sempre junto com você.</div>
-</div>
+<section>
+    <img src="imagens/foto4.jpg">
+    <div class="vignette"></div>
+    <div class="overlay fade">
+        <h2>Nosso Compromisso 💍</h2>
+        <p>Quero estar sempre junto com você.</p>
+    </div>
+</section>
 
-<div class="slide">
-<img src="imagens/fotoAliancaDesenho.jpg">
-<div class="texto">Esse momento virou arte… porque a vida com você parece desenho animado. ✨</div>
-</div>
+<!-- FOTO ALIANÇA DESENHO -->
+<section>
+    <img src="imagens/fotoAliancaDesenho.jpg">
+    <div class="vignette"></div>
+    <div class="overlay fade">
+        <p>Esse momento virou arte… porque a vida com você parece desenho animado. ✨</p>
+    </div>
+</section>
 
-<div class="slide">
-<img src="imagens/foto5.jpg">
-<div class="texto">Seu sorriso é meu lugar favorito.</div>
-</div>
+<section>
+    <img src="imagens/foto5.jpg">
+    <div class="vignette"></div>
+    <div class="overlay fade">
+        <p>Seu sorriso é meu lugar favorito.</p>
+    </div>
+</section>
 
-<div class="slide">
-<img src="imagens/foto6.jpg">
-<div class="texto">Cada detalhe seu me faz ter certeza que escolhi a pessoa certa.</div>
-</div>
+<section>
+    <img src="imagens/foto6.jpg">
+    <div class="vignette"></div>
+    <div class="overlay fade">
+        <p>Cada detalhe seu me faz ter certeza que escolhi a pessoa certa.</p>
+    </div>
+</section>
 
-<div class="slide">
-<img src="imagens/foto7.jpg">
-<div class="texto">Cada conversa, conexão.</div>
-</div>
+<section>
+    <img src="imagens/foto7.jpg">
+    <div class="vignette"></div>
+    <div class="overlay fade">
+        <p>Cada conversa, conexão.</p>
+    </div>
+</section>
 
-<div class="slide">
-<img src="imagens/foto8.jpg">
-<div class="texto">Prometo continuar construindo memórias lindas ao seu lado.</div>
-</div>
+<section>
+    <img src="imagens/foto8.jpg">
+    <div class="vignette"></div>
+    <div class="overlay fade">
+        <p>Prometo continuar construindo memórias lindas ao seu lado.</p>
+    </div>
+</section>
 
-<div class="slide">
-<img src="imagens/foto9.jpg">
-<div class="texto">Você transformou dias comuns em capítulos inesquecíveis.</div>
-</div>
+<section>
+    <img src="imagens/foto9.jpg">
+    <div class="vignette"></div>
+    <div class="overlay fade">
+        <p>Você transformou dias comuns em capítulos inesquecíveis.</p>
+    </div>
+</section>
 
-<div class="slide">
-<img src="imagens/foto10.jpg">
-<div class="texto">Que a gente continue assim… rindo, sonhando e crescendo juntos.</div>
-</div>
+<section>
+    <img src="imagens/foto10.jpg">
+    <div class="vignette"></div>
+    <div class="overlay fade">
+        <p>Que a gente continue assim… rindo, sonhando e crescendo juntos.</p>
+    </div>
+</section>
 
-<div class="slide">
-<img src="imagens/foto12.jpg">
-<div class="texto">Começamos juntos… e eu quero estar sempre junto com você. ❤️</div>
-</div>
+<section>
+    <img src="imagens/foto12.jpg">
+    <div class="vignette"></div>
+    <div class="overlay fade">
+        <p>Começamos juntos… e eu quero estar sempre junto com você. ❤️</p>
+    </div>
+</section>
 
-<div class="slide">
-<img src="imagens/foto13.jpg">
-<div class="texto">A vida com você é tipo desenho animado… colorida, leve e perfeita do jeito que é. 💫</div>
-</div>
-
-</div>
+<section>
+    <img src="imagens/foto13.jpg">
+    <div class="vignette"></div>
+    <div class="overlay fade">
+        <p>A vida com você é tipo desenho animado… colorida, leve e perfeita do jeito que é. 💫</p>
+    </div>
+</section>
 
 <script>
-let slides = document.querySelectorAll('.slide');
-let intro = document.getElementById('intro');
-let index = 0;
+const audio = document.getElementById("musica");
 
+/* Música inicia na primeira interação (necessário para iPhone) */
+function iniciarMusica(){
+    audio.play().catch(()=>{});
+    document.removeEventListener("click", iniciarMusica);
+    document.removeEventListener("touchstart", iniciarMusica);
+}
+document.addEventListener("click", iniciarMusica);
+document.addEventListener("touchstart", iniciarMusica);
+
+/* Tela roxa */
 setTimeout(() => {
-    intro.style.opacity = 0;
+    const intro = document.getElementById("intro-screen");
+    intro.style.opacity = "0";
+    setTimeout(()=> intro.style.display="none",2000);
 }, 3000);
 
-setTimeout(() => {
-    intro.style.display = "none";
-    showSlide();
-}, 5000);
+/* Animação ao aparecer */
+const sections = document.querySelectorAll("section");
 
-function showSlide() {
-    slides[index].style.opacity = 1;
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("visible");
+            const overlay = entry.target.querySelector(".fade");
+            if(overlay){
+                setTimeout(()=> overlay.classList.add("show"),400);
+            }
+        }
+    });
+},{threshold:0.6});
 
-    setTimeout(() => {
-        slides[index].style.opacity = 0;
-        index++;
-        if(index >= slides.length) index = 0;
-        showSlide();
-    }, 6000);
-}
+sections.forEach(section => observer.observe(section));
 </script>
 
 </body>
