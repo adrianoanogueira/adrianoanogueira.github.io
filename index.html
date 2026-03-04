@@ -67,22 +67,21 @@ body {
     color: white;
     font-size: 24px;
     text-align: center;
-    cursor: pointer;
+    transition: opacity 2s ease;
 }
 </style>
 </head>
 
 <body>
 
-<audio id="musica" loop>
+<audio id="musica" loop playsinline>
     <source src="imagens/musica.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
 
 <div class="intro" id="intro">
-Toque na tela 💜<br>
-Desde 27/11/2025...<br>
+Desde 27/11/2025... 💜<br>
 Tudo começou com você.
 </div>
 
@@ -164,34 +163,31 @@ let slides = document.querySelectorAll('.slide');
 let intro = document.getElementById('intro');
 let musica = document.getElementById('musica');
 let index = 0;
-let started = false;
 
-intro.addEventListener("click", function() {
+window.onload = function() {
 
-    if(started) return;
-    started = true;
-
-    musica.play(); // funciona no iPhone porque houve interação
-
-    intro.style.display = "none";
-    slides[index].style.opacity = 1;
-});
-
-document.addEventListener("click", function() {
-
-    if(!started) return;
-
-    slides[index].style.opacity = 0;
-    index++;
-
-    if(index >= slides.length) {
-        index = 0;
-    }
+    musica.play().catch(()=>{});
 
     setTimeout(() => {
-        slides[index].style.opacity = 1;
-    }, 600);
-});
+        intro.style.opacity = 0;
+    }, 3000);
+
+    setTimeout(() => {
+        intro.style.display = "none";
+        showSlide();
+    }, 5000);
+}
+
+function showSlide() {
+    slides[index].style.opacity = 1;
+
+    setTimeout(() => {
+        slides[index].style.opacity = 0;
+        index++;
+        if(index >= slides.length) index = 0;
+        showSlide();
+    }, 6000);
+}
 </script>
 
 </body>
