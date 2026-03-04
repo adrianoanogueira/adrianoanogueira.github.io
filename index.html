@@ -261,28 +261,38 @@ const observer = new IntersectionObserver(entries => {
 
 sections.forEach(section => observer.observe(section));
 
-/* Scroll automático suave */
+/* Scroll automático inteligente */
+
 let currentSection = 0;
 const totalSections = sections.length;
 
-function autoScroll(){
-    currentSection++;
-    if(currentSection >= totalSections) return;
+function autoScroll(delay){
+    setTimeout(() => {
 
-    sections[currentSection].scrollIntoView({
-        behavior: "smooth"
-    });
+        currentSection++;
+        if(currentSection >= totalSections) return;
 
-    setTimeout(autoScroll, 7000); // 6s + 1s extra
+        sections[currentSection].scrollIntoView({
+            behavior: "smooth"
+        });
+
+        // próximas fotos
+        autoScroll(7000);
+
+    }, delay);
 }
 
-/* Inicia scroll automático após intro */
-setTimeout(()=>{
-    autoScroll();
-}, 5000);
+/* Começa após intro desaparecer */
+setTimeout(() => {
+
+    // primeira foto fica mais tempo (9 segundos)
+    autoScroll(9000);
+
+}, 6000); 
     
 </script>
 
 </body>
 </html>
+
 
