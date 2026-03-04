@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Começamos Juntos ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #fff6f9, #ffe6f0);
+    text-align:center;
+    color:#444;
+    overflow-x:hidden;
+}
+
+section{
+    padding:60px 20px;
+}
+
+h1{
+    font-size:2.4em;
+    color:#d63384;
+}
+
+h2{
+    color:#c2185b;
+}
+
+button{
+    background:#ff5c99;
+    border:none;
+    padding:12px 28px;
+    color:white;
+    font-size:16px;
+    border-radius:25px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#e60073;
+}
+
+.fotos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(150px,1fr));
+    gap:15px;
+    margin-top:30px;
+}
+
+.fotos img{
+    width:100%;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.fotos img:hover{
+    transform:scale(1.05);
+}
+
+.viagem{
+    background:white;
+    border-radius:20px;
+    margin:30px;
+    padding:40px 20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.mensagem-final{
+    display:none;
+    font-size:1.3em;
+    margin-top:30px;
+    color:#b30059;
+    font-weight:500;
+}
+</style>
+</head>
+
+<body>
+
+<section>
+    <h1>Começamos Juntos ✨</h1>
+    <p>
+        No Ano Novo, sem saber exatamente o que o futuro guardava,  
+        a gente já estava lado a lado.
+    </p>
+    <button onclick="mostrarGaleria()">Ver Nossa História</button>
+</section>
+
+<section id="galeria" style="display:none;">
+    <h2>Nosso Primeiro Mês 🌸</h2>
+    <p>
+        Em apenas 1 mês, criamos memórias que eu quero guardar pra sempre.
+    </p>
+
+    <div class="fotos">
+        <img src="imagens/foto1.jpg">
+        <img src="imagens/foto2.jpg">
+        <img src="imagens/foto3.jpg">
+        <img src="imagens/foto4.jpg">
+        <img src="imagens/foto5.jpg">
+        <img src="imagens/foto6.jpg">
+        <img src="imagens/foto7.jpg">
+        <img src="imagens/foto8.jpg">
+        <img src="imagens/foto9.jpg">
+        <img src="imagens/foto10.jpg">
+        <img src="imagens/foto11.jpg">
+        <img src="imagens/foto12.jpg">
+    </div>
+</section>
+
+<section class="viagem">
+    <h2>Nossa Primeira Viagem 🧳</h2>
+    <p>
+        Aquela viagem não foi só um passeio.  
+        Foi a certeza de que eu quero viver muitas outras ao seu lado.
+    </p>
+</section>
+
+<section>
+    <button onclick="mostrarMensagem()">Uma última coisa pra você 💖</button>
+
+    <div class="mensagem-final" id="final">
+        Começamos o ano juntos...  
+        começamos esse namoro juntos...  
+        e eu quero continuar todos os próximos capítulos da minha vida com você.  
+        ❤️
+    </div>
+</section>
+
+<script>
+function mostrarGaleria(){
+    document.getElementById("galeria").style.display = "block";
+    window.scrollTo({top:600, behavior:"smooth"});
+}
+
+function mostrarMensagem(){
+    document.getElementById("final").style.display = "block";
+}
+</script>
+
+</body>
+</html>
