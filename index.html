@@ -3,143 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Começamos Juntos ❤️</title>
+<title>Desde 27/11/2025 ❤️</title>
 
 <style>
 body{
     margin:0;
-    font-family:'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom, #fff6f9, #ffe6f0);
-    text-align:center;
-    color:#444;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background:#0f0f14;
+    color:white;
     overflow-x:hidden;
 }
 
+.container{
+    max-width:390px;
+    margin:auto;
+}
+
 section{
-    padding:60px 20px;
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+}
+
+img{
+    width:100%;
+    height:100vh;
+    object-fit:cover;
+    filter:brightness(70%);
+}
+
+.overlay{
+    position:absolute;
+    padding:20px;
 }
 
 h1{
-    font-size:2.4em;
-    color:#d63384;
+    font-size:28px;
+    margin-bottom:15px;
 }
 
-h2{
-    color:#c2185b;
-}
-
-button{
-    background:#ff5c99;
-    border:none;
-    padding:12px 28px;
-    color:white;
+p{
     font-size:16px;
-    border-radius:25px;
-    cursor:pointer;
-    transition:0.3s;
+    line-height:1.5;
 }
 
-button:hover{
-    background:#e60073;
+.fade{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1.2s ease;
 }
 
-.fotos{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(150px,1fr));
-    gap:15px;
-    margin-top:30px;
+.fade.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
-.fotos img{
-    width:100%;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    transition:0.4s;
+.highlight{
+    font-size:20px;
+    font-weight:300;
 }
 
-.fotos img:hover{
-    transform:scale(1.05);
-}
-
-.viagem{
-    background:white;
-    border-radius:20px;
-    margin:30px;
-    padding:40px 20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
-
-.mensagem-final{
-    display:none;
-    font-size:1.3em;
-    margin-top:30px;
-    color:#b30059;
-    font-weight:500;
-}
 </style>
 </head>
 
 <body>
+<div class="container">
 
+<!-- FOTO 11 - CAPA -->
 <section>
-    <h1>Começamos Juntos ✨</h1>
-    <p>
-        No Ano Novo, sem saber exatamente o que o futuro guardava,  
-        a gente já estava lado a lado.
-    </p>
-    <button onclick="mostrarGaleria()">Ver Nossa História</button>
-</section>
-
-<section id="galeria" style="display:none;">
-    <h2>Nosso Primeiro Mês 🌸</h2>
-    <p>
-        Em apenas 1 mês, criamos memórias que eu quero guardar pra sempre.
-    </p>
-
-    <div class="fotos">
-        <img src="imagens/foto1.jpg">
-        <img src="imagens/foto2.jpg">
-        <img src="imagens/foto3.jpg">
-        <img src="imagens/foto4.jpg">
-        <img src="imagens/foto5.jpg">
-        <img src="imagens/foto6.jpg">
-        <img src="imagens/foto7.jpg">
-        <img src="imagens/foto8.jpg">
-        <img src="imagens/foto9.jpg">
-        <img src="imagens/foto10.jpg">
-        <img src="imagens/foto11.jpg">
-        <img src="imagens/foto12.jpg">
+    <img src="imagens/foto11.jpg">
+    <div class="overlay fade">
+        <h1>Desde 27/11/2025 ✨</h1>
+        <p>Eu já não imaginava mais meus dias sem você.</p>
     </div>
 </section>
 
-<section class="viagem">
-    <h2>Nossa Primeira Viagem 🧳</h2>
-    <p>
-        Aquela viagem não foi só um passeio.  
-        Foi a certeza de que eu quero viver muitas outras ao seu lado.
-    </p>
+<!-- FOTO 1 -->
+<section>
+    <img src="imagens/foto1.jpg">
+    <div class="overlay fade">
+        <p class="highlight">
+            Começamos o ano juntos…  
+            e ali, sem perceber, começávamos algo muito maior.
+        </p>
+    </div>
+</section>
+
+<!-- FOTO 2 -->
+<section>
+    <img src="imagens/foto2.jpg">
+    <div class="overlay fade">
+        <p>Na praia, entre o mar e o céu, eu já sentia paz ao seu lado.</p>
+    </div>
+</section>
+
+<!-- FOTO 3 -->
+<section>
+    <img src="imagens/foto3.jpg">
+    <div class="overlay fade">
+        <p>O som das ondas… e o som da sua risada.</p>
+    </div>
+</section>
+
+<!-- FOTO 4 - ALIANÇA -->
+<section>
+    <img src="imagens/foto4.jpg">
+    <div class="overlay fade">
+        <h1>Nosso Compromisso 💍</h1>
+        <p>
+            Naquele momento, olhando para nossa aliança na praia,  
+            eu tive certeza:  
+            eu quero estar sempre junto com você.
+        </p>
+    </div>
+</section>
+
+<!-- RESTANTE DAS FOTOS -->
+<section>
+    <img src="imagens/foto5.jpg">
+    <div class="overlay fade">
+        <p>Cada detalhe ao seu lado vira memória.</p>
+    </div>
 </section>
 
 <section>
-    <button onclick="mostrarMensagem()">Uma última coisa pra você 💖</button>
-
-    <div class="mensagem-final" id="final">
-        Começamos o ano juntos...  
-        começamos esse namoro juntos...  
-        e eu quero continuar todos os próximos capítulos da minha vida com você.  
-        ❤️
+    <img src="imagens/foto6.jpg">
+    <div class="overlay fade">
+        <p>Cada abraço, segurança.</p>
     </div>
 </section>
+
+<section>
+    <img src="imagens/foto7.jpg">
+    <div class="overlay fade">
+        <p>Cada conversa, conexão.</p>
+    </div>
+</section>
+
+<section>
+    <img src="imagens/foto8.jpg">
+    <div class="overlay fade">
+        <p>Você transformou meus dias comuns em especiais.</p>
+    </div>
+</section>
+
+<section>
+    <img src="imagens/foto9.jpg">
+    <div class="overlay fade">
+        <p>Em apenas um mês… parece que foi muito mais.</p>
+    </div>
+</section>
+
+<section>
+    <img src="imagens/foto10.jpg">
+    <div class="overlay fade">
+        <p>Porque quando é verdadeiro, o tempo ganha outro significado.</p>
+    </div>
+</section>
+
+<section>
+    <img src="imagens/foto12.jpg">
+    <div class="overlay fade">
+        <h1>Quero continuar…</h1>
+        <p>
+            Começamos juntos.  
+            E eu quero continuar todos os próximos capítulos  
+            da minha vida ao seu lado. ❤️
+        </p>
+    </div>
+</section>
+
+</div>
 
 <script>
-function mostrarGaleria(){
-    document.getElementById("galeria").style.display = "block";
-    window.scrollTo({top:600, behavior:"smooth"});
-}
+const faders = document.querySelectorAll('.fade');
 
-function mostrarMensagem(){
-    document.getElementById("final").style.display = "block";
-}
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.4 });
+
+faders.forEach(fade => {
+    observer.observe(fade);
+});
 </script>
 
 </body>
