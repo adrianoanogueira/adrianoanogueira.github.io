@@ -103,7 +103,11 @@ img{
 
 <!-- TELA ROXA -->
 <div id="intro-screen">
-    <h1>Desde 27/11/2025 ✨</h1>
+    <h1>Desde 27/11/2025 ✨<br><br>
+<span style="font-size:16px;opacity:0.8;">
+Clique na tela, minha flor 💜
+</span>
+</h1>
 </div>
 
 <!-- FOTO 11 -->
@@ -238,7 +242,7 @@ setTimeout(() => {
     const intro = document.getElementById("intro-screen");
     intro.style.opacity = "0";
     setTimeout(()=> intro.style.display="none",2000);
-}, 3000);
+}, 4000);
 
 /* Animação ao aparecer */
 const sections = document.querySelectorAll("section");
@@ -256,7 +260,29 @@ const observer = new IntersectionObserver(entries => {
 },{threshold:0.6});
 
 sections.forEach(section => observer.observe(section));
+
+/* Scroll automático suave */
+let currentSection = 0;
+const totalSections = sections.length;
+
+function autoScroll(){
+    currentSection++;
+    if(currentSection >= totalSections) return;
+
+    sections[currentSection].scrollIntoView({
+        behavior: "smooth"
+    });
+
+    setTimeout(autoScroll, 7000); // 6s + 1s extra
+}
+
+/* Inicia scroll automático após intro */
+setTimeout(()=>{
+    autoScroll();
+}, 5000);
+    
 </script>
 
 </body>
 </html>
+
